@@ -1,0 +1,8 @@
+<!-- {{ publisher.name }}<br>
+<hr>
+{% for book in publisher.book_set.all %}
+{{ book.name }}<br>
+{% endfor %}
+{{ publisher.book_set.all|length }}
+<hr>
+{% endfor %} -->

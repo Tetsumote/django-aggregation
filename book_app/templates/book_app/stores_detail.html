@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="display-4 mt-5">Store Detail:</h1>
+    
+<dl class="row mt-5">
+        <dt class="col-sm-3">Name:</dt>
+        <dd class="col-sm-9">{{ store.name }}</dd>
+      
+        <dt class="col-sm-3">Total books</dt>
+        <dd class="col-sm-9">
+          <p>{{ store.books.all|length }}</p>
+        </dd>
+      
+        <dt class="col-sm-3">Min price:</dt>
+        <dd class="col-sm-9">{{ book_list.min_price|floatformat:2 }} $</dd>
+      
+        <dt class="col-sm-3 text-truncate">Max price:</dt>
+        <dd class="col-sm-9">{{ book_list.max_price|floatformat:2 }} $</dd>
+
+        <dt class="col-sm-3 text-truncate">Avg price:</dt>
+        <dd class="col-sm-9">{{ book_list.avg_price|floatformat:2 }} $</dd>
+
+        <dt class="col-sm-3 text-truncate">Total pages:</dt>
+        <dd class="col-sm-9">{{ book_list.total_pages }} pg</dd>
+
+        <dt class="col-sm-3 text-truncate">First publish:</dt>
+        <dd class="col-sm-9">{{ book_list.first_publish }} </dd>
+
+        <dt class="col-sm-3 text-truncate">Last publish:</dt>
+        <dd class="col-sm-9">{{ book_list.last_publish }} </dd>
+      
+      </dl>
+      <div class="row">
+      {% for book in store.books.all %}
+
+      <div class="col-4">
+          <div class="card mb-2" >
+              <div class="card-body">
+                  <h5 class="card-title">{{ book.name }}</h5>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              </div>
+              <ul class="list-group list-group-flush">
+                  <li class="list-group-item">{{ book.pages }} pages</li>
+                  <li class="list-group-item">rating: {{ book.rating }}</li>
+                  <li class="list-group-item">{{ book.pubdate }}</li>
+              </ul>
+          </div>
+      </div>
+  
+  
+      {% endfor %}
+     </div>
+{% endblock %}

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="display-4 mt-5">Book Detail:</h1>
+    
+    <dl class="row mt-5">
+      <dt class="col-sm-3">Name:</dt>
+      <dd class="col-sm-9">{{ book.name }}</dd>
+    
+      <dt class="col-sm-3">Author</dt>
+      <dd class="col-sm-9">
+        {% for author in book.authors.all %}
+          {{ author }}<br>
+        {% endfor %}
+      </dd>
+
+    <dt class="col-sm-3">2 book price:</dt>
+    <dd class="col-sm-9">     
+     
+        {{ book_total.book_total }} $<br>
+      </dd>
+   
+      <dt class="col-sm-3">Pages:</dt>
+      <dd class="col-sm-9">{{ book.pages }}</dd>
+
+      <dt class="col-sm-3">Double pages:</dt>
+      <dd class="col-sm-9">{{ book.priceArea }}</dd>
+    
+      <dt class="col-sm-3">Price:</dt>
+      <dd class="col-sm-9">{{ book.price }} $</dd>
+
+      <dt class="col-sm-3">Rating:</dt>
+      <dd class="col-sm-9">{{ book.rating }}</dd>
+
+      <dt class="col-sm-3">Publisher:</dt>
+      <dd class="col-sm-9">{{ book.publisher }}</dd>
+
+      <dt class="col-sm-3">Publication data:</dt>
+      <dd class="col-sm-9">{{ book.pubdate }}</dd>
+    </dl>
+
+
+    
+
+{% endblock %}
+
+
+
+
+

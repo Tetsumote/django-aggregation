@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="display-4 mt-5">Books:</h1>
+    <div class="row">
+
+            {% for book in books %}
+            <div class="col-4">
+
+                <div class="card mb-2" >
+                        <div class="card-body">
+
+                          <h5 class="card-title"><a href={% url 'book_detail' pk=book.pk %}>{{ book.name }}</a></h5>
+                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        </div>
+
+                        <div class="card-body">
+                                <h6 class="card-title">Authors:</h6>
+                            {% for author in book.authors.all %}
+                              <a href={% url 'author_detail' pk=author.pk %} class="card-link mr-auto ml-0">
+                                
+                                    {{ author }}<br>
+                                </a>
+                                {% endfor %}
+                                <hr>
+                                <h6 class="card-title">Publisher:</h6>
+                          <a href={% url 'publisher_detail' pk=book.publisher.pk %} class="card-link ml-0">{{ book.publisher }}</a>
+                        </div>
+                      </div>
+            </div>
+            {% endfor %}
+       
+    </div>
+
+
+
+{% endblock %}

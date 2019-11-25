@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="display-4 mt-5">Publishers:</h1>
+
+    {% for publisher in publishers %}
+    <ul class="list-group">
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            
+            <a href={% url 'publisher_detail' pk=publisher.pk %} class="card-link ml-0">{{ publisher.name }}</a> 
+
+        <span class="badge badge-primary badge-pill">books: {{ publisher.book_set.all|length }}</span>
+        </li>
+    </ul>
+    {% endfor %}
+
+{% endblock %}
+
+
+
+
+

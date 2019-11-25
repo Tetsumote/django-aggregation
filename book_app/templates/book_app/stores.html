@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="display-4 mt-5">Stores:</h1>
+
+{% for store in stores %}
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href={% url 'store_detail' pk=store.pk %}>{{ store.name }}</a> 
+    <span class="badge badge-primary badge-pill">books: {{ store.books.all|length }}</span>
+    </li>
+
+
+</ul>
+
+
+{% endfor %}
+
+{% endblock %}
